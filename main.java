@@ -13,6 +13,8 @@ public class main {
     private static final int TELEPORT_RANGE = 5;
     private static final int TELEPORT_PENALTY = 5;
     private static final int RESET_PENALTY = 5;
+    private static final int STRONG_MATCHUP_BONUS = 15;
+    private static final int WEAK_MATCHUP_BONUS = 10;
 
     public static void main(String[] args) {
         new main().run();
@@ -43,12 +45,24 @@ public class main {
         Random random = new Random();
 
         Track playerTrack = promptTrackSelection(tracks, input, "Select a track ID for Race 1a: ");
+        if (playerTrack == null) {
+            System.out.println("No available tracks to start the tournament.");
+            return;
+        }
         System.out.println("Remaining Tracks:");
         printTracks(tracks);
         System.out.println();
 
         Car playerCar = promptCarSelection(cars, input, "Select a car ID for Race 1a: ");
+        if (playerCar == null) {
+            System.out.println("No available cars to start the tournament.");
+            return;
+        }
         Car computerCar = selectBestOpponent(cars, playerTrack, playerCar);
+        if (computerCar == null) {
+            System.out.println("No available opponent car for Race 1a.");
+            return;
+        }
         System.out.println("Computer selected car: " + computerCar.name);
         System.out.println();
 
@@ -60,6 +74,10 @@ public class main {
         System.out.println();
 
         Track race1bTrack = selectRandomTrack(tracks, random);
+        if (race1bTrack == null) {
+            System.out.println("No available track for Race 1b.");
+            return;
+        }
         System.out.println("Race 1b track selected by computer: " + race1bTrack.name);
         System.out.println("Remaining Tracks:");
         printTracks(tracks);
@@ -67,6 +85,10 @@ public class main {
 
         Car computer1 = selectRandomCar(cars, random);
         Car computer2 = selectRandomCar(cars, random);
+        if (computer1 == null || computer2 == null) {
+            System.out.println("Not enough cars available for Race 1b.");
+            return;
+        }
         RaceResult race1b = runRace("Race 1b", race1bTrack, computer1, computer2, random);
         raceLog.append(race1b);
         printRaceSummary(race1b);
@@ -75,8 +97,16 @@ public class main {
         Track finalTrack;
         if (race1a.winner == playerCar) {
             finalTrack = promptTrackSelection(tracks, input, "Select a track ID for the Final race: ");
+            if (finalTrack == null) {
+                System.out.println("No available track for the Final race.");
+                return;
+            }
         } else {
             finalTrack = selectRandomTrack(tracks, random);
+            if (finalTrack == null) {
+                System.out.println("No available track for the Final race.");
+                return;
+            }
             System.out.println("Computer selected final track: " + finalTrack.name);
         }
         System.out.println("Remaining Tracks:");
@@ -195,6 +225,9 @@ public class main {
     }
 
     private Track promptTrackSelection(SLL<Track> tracks, Scanner input, String prompt) {
+        if (tracks.isEmpty()) {
+            return null;
+        }
         Track selected = null;
         while (selected == null) {
             int id = readInt(input, prompt);
@@ -207,6 +240,9 @@ public class main {
     }
 
     private Car promptCarSelection(SLL<Car> cars, Scanner input, String prompt) {
+        if (cars.isEmpty()) {
+            return null;
+        }
         Car selected = null;
         while (selected == null) {
             int id = readInt(input, prompt);
@@ -257,11 +293,17 @@ public class main {
     }
 
     private Car selectRandomCar(SLL<Car> cars, Random random) {
+        if (cars.isEmpty()) {
+            return null;
+        }
         int index = random.nextInt(cars.size());
         return cars.removeAt(index);
     }
 
     private Track selectRandomTrack(SLL<Track> tracks, Random random) {
+        if (tracks.isEmpty()) {
+            return null;
+        }
         int index = random.nextInt(tracks.size());
         return tracks.removeAt(index);
     }
@@ -420,22 +462,22 @@ public class main {
 
     private int matchupBonus(String typeA, String typeB) {
         if (typeA.equalsIgnoreCase("Electric") && typeB.equalsIgnoreCase("Water")) {
-            return 15;
+            return STRONG_MATCHUP_BONUS;
         }
         if (typeA.equalsIgnoreCase("Water") && typeB.equalsIgnoreCase("Fire")) {
-            return 15;
+            return STRONG_MATCHUP_BONUS;
         }
         if (typeA.equalsIgnoreCase("Fire") && typeB.equalsIgnoreCase("Earth")) {
-            return 15;
+            return STRONG_MATCHUP_BONUS;
         }
         if (typeA.equalsIgnoreCase("Earth") && typeB.equalsIgnoreCase("Electric")) {
-            return 15;
+            return STRONG_MATCHUP_BONUS;
         }
         if (typeA.equalsIgnoreCase("Air") && typeB.equalsIgnoreCase("Earth")) {
-            return 10;
+            return WEAK_MATCHUP_BONUS;
         }
         if (typeA.equalsIgnoreCase("Heavy") && typeB.equalsIgnoreCase("Air")) {
-            return 10;
+            return WEAK_MATCHUP_BONUS;
         }
         return 0;
     }
