@@ -21,6 +21,7 @@ ID Name Performance Score Type
 104 AquaDrift 240 Water 
 105 TerraCrusher 235 Earth 
 106 WindPhantom 255 Air 
+</br>
 2.2  tracks.txt 
 ID Name Type Boost 
 201 Neon Circuit Electric 20 
@@ -35,13 +36,13 @@ ID Name Type Boost
 3.1  Game Players 
 The game features two types of participants: the Human Player and the Computer. When a Player races against 
 the Computer, the match takes place on the track selected by the Player, as they have track-selection priority. 
-However, in Computer vs. Computer matches, the track is assigned randomly. 
+However, in Computer vs. Computer matches, the track is assigned randomly. </br>
 3.2  Cars 
 All 6 cars should be stored in a Single Linked List (SLL). The list must be kept sorted in increasing order according 
 to performance score. This means the car with the lowest performance is at the head, and the highest is at the 
-end. The list should be traversed to display cars and select a car by ID. 
+end. The list should be traversed to display cars and select a car by ID. </br>
 3.3 Type Matchup Table 
-When a car of type “Type A” races against a Type B car on any track, it receives the specified bonus as follows: 
+When a car of type “Type A” races against a Type B car on any track, it receives the specified bonus as follows: </br>
 Type A   Type B   Matchup Bonus 
 Electric Water +15 
 Water Fire +15 
