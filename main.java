@@ -483,6 +483,11 @@ public class main {
     }
 
     private int randomBetween(Random random, int min, int max) {
+        if (max < min) {
+            int temp = max;
+            max = min;
+            min = temp;
+        }
         return random.nextInt(max - min + 1) + min;
     }
 
