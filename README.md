@@ -230,8 +230,8 @@ Sample Output for Race Log
 
 
 
-*NOT FOLLOWING NOTES OR RULES WILL BE SEVERELY PENALIZED* 
-Notes 
+<h1><u></u>*NOT FOLLOWING NOTES OR RULES WILL BE SEVERELY PENALIZED*</u> </h1>
+<h2>Notes </h2>
 1- In your program, you can use the Single Linked List and Double Linked List data structures as much you want, but you 
 must only use them. 
 Don’t use other data structures such as an array or arraylist or list or any other data structre. 
