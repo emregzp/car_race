@@ -8,7 +8,7 @@ Due Date : 08.05.2026, 23.55
 1.  Objective 
          In this assignment, you are expected to design and implement a race tournament system using linked 
 list data structures. The system should manage cars, tracks, and race results efficiently.  
-         Students are expected to store and process cars and tracks using a Single Linked List (SLL), manage 
+         You are expected to store and process cars and tracks using a Single Linked List (SLL), manage 
 races using a Double Linked List (DLL) to simulate tournament progression. The goal is to demonstrate 
 correct use of data structures, dynamic data handling, and logical flow of a multi-stage tournament system. 
 2.  Data Files 
@@ -217,10 +217,17 @@ Track C removed after Final Race
 5.  Sample Console Outputs 
 Expected console output format for the full tournament is given below. Both cars race simultaneously on the 
 same track. The race log SLL is printed at the end by showing the history of all three races in order. 
+<img width="611" height="498" alt="image" src="https://github.com/user-attachments/assets/1c889d0a-305f-4e68-a4fc-7e6d88808d66" />
+<img width="622" height="547" alt="image" src="https://github.com/user-attachments/assets/0d77f29e-a24f-4451-a70c-0b7b0fb48898" />
+<img width="717" height="578" alt="image" src="https://github.com/user-attachments/assets/9caa3c99-f0ad-4e5b-9792-1d9f6bc2c411" />
+<img width="720" height="557" alt="image" src="https://github.com/user-attachments/assets/73ae9f22-1cae-49d2-b3f3-10a67789b34b" />
+
 
 Sample Output for Race Log 
-This homework will be graded by Res. Asst. Muharremcan  GÜLYE. 
-You can ask your questions to him from the “FORUM -> Homework 2 - Questions” part of the DEUZEM SAKAI software. 
+<img width="517" height="800" alt="image" src="https://github.com/user-attachments/assets/d522d525-c5be-4ad3-9277-3ff56bae58d6" />
+
+
+
 *NOT FOLLOWING NOTES OR RULES WILL BE SEVERELY PENALIZED* 
 Notes 
 1- In your program, you can use the Single Linked List and Double Linked List data structures as much you want, but you 
@@ -229,20 +236,6 @@ Don’t use other data structures such as an array or arraylist or list or any o
 Don’t use STRING data type in the main solution, instead of a stack or queue. 
 2- You must strictly follow the sample output. DON’T CHANGE THE SAMPLE OUTPUT FORMAT. 
 3- Don’t use the linked list classes embedded in Java. Use the ones given in the lectures. 
-4- Upload format 
-Step1: Create a new folder, named by your student number and name 
-(without any space) 
-For example: 2015510012_Ali_Tas 
-Step2: Copy all java files into this folder 
-Step3: Compress the folder 2015510012_Ali_Tas.zip 
-Step4: Upload the file 2015510012_Ali_Tas.zip   from DEUZEM SAKAI 
-5- Don’t use ENIGMA or any other extra library. 
-6- If you are late, your grade will be decreased by 10 points for each day. After five days, your assignment will not be 
-accepted. 
-7- Assignment must be your individual work. 
-Cheating is strictly prohibited. 
-All source codes will be automatically compared with each other by 
-using a program. If any cheating occurs, your assignment will be 
-graded with zero (0). 
-8- Your program must work correctly under all conditions. Try to control all possible errors. 
-9- You should use meaningful variable names, appropriate comments, and good prompting messages.                                                  
+4- Don’t use ENIGMA or any other extra library. 
+5- Your program must work correctly under all conditions. Try to control all possible errors. 
+6- You should use meaningful variable names, appropriate comments, and good prompting messages.                                                  
