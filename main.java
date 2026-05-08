@@ -7,6 +7,12 @@ import java.util.Scanner;
 public class main {
     private static final int TRACK_LENGTH = 50;
     private static final int TELEPORT_COUNT = 10;
+    private static final int MIN_MOVE_DISTANCE = 1;
+    private static final int MAX_MOVE_DISTANCE = 3;
+    private static final int MOVE_PENALTY_PER_UNIT = 5;
+    private static final int TELEPORT_RANGE = 5;
+    private static final int TELEPORT_PENALTY = 5;
+    private static final int RESET_PENALTY = 5;
 
     public static void main(String[] args) {
         new main().run();
@@ -20,7 +26,7 @@ public class main {
             String tracksPath = "tracks.txt";
             cars = loadCars(carsPath);
             tracks = loadTracks(tracksPath);
-        } catch (FileNotFoundException exception) {
+        } catch (FileNotFoundException fileException) {
             System.out.println("Data files not found. Please check cars.txt and tracks.txt.");
             return;
         }
@@ -272,9 +278,6 @@ public class main {
         while (!racer1.finished && !racer2.finished) {
             moveCar(racer1, raceTrack, random);
             moveCar(racer2, raceTrack, random);
-            if (racer1.finished || racer2.finished) {
-                break;
-            }
         }
 
         Car winner = determineWinner(racer1, racer2);
@@ -315,9 +318,9 @@ public class main {
         if (racer.finished) {
             return;
         }
-        int move = randomBetween(random, 1, 3);
+        int move = randomBetween(random, MIN_MOVE_DISTANCE, MAX_MOVE_DISTANCE);
         racer.position += move;
-        racer.score -= move * 5;
+        racer.score -= move * MOVE_PENALTY_PER_UNIT;
         if (racer.position > TRACK_LENGTH) {
             racer.position = TRACK_LENGTH;
         }
@@ -332,9 +335,9 @@ public class main {
         if (unit != null) {
             if (unit.isReset) {
                 racer.position = 1;
-                racer.score -= 5;
+                racer.score -= RESET_PENALTY;
             } else if (unit.isTeleport) {
-                int delta = randomBetween(random, 1, 5);
+                int delta = randomBetween(random, MIN_MOVE_DISTANCE, TELEPORT_RANGE);
                 if (random.nextBoolean()) {
                     racer.position += delta;
                 } else {
@@ -346,7 +349,7 @@ public class main {
                 if (racer.position > TRACK_LENGTH) {
                     racer.position = TRACK_LENGTH;
                 }
-                racer.score -= 5;
+                racer.score -= TELEPORT_PENALTY;
             }
         }
 
