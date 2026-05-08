@@ -3,15 +3,16 @@
 [car_race.pdf](https://github.com/user-attachments/files/27531775/car_race.pdf)
 
  
-RACE TOURNAMENT SIMULATION 
-Due Date : 08.05.2026, 23.55 
-1.  Objective 
+<h1>RACE TOURNAMENT SIMULATION </h1>
+
+<h2>1.  Objective </h2>
          In this assignment, you are expected to design and implement a race tournament system using linked 
 list data structures. The system should manage cars, tracks, and race results efficiently.  
          You are expected to store and process cars and tracks using a Single Linked List (SLL), manage 
 races using a Double Linked List (DLL) to simulate tournament progression. The goal is to demonstrate 
-correct use of data structures, dynamic data handling, and logical flow of a multi-stage tournament system. 
-2.  Data Files 
+correct use of data structures, dynamic data handling, and logical flow of a multi-stage tournament system. </br>
+
+<h2>2.  Data Files </h2>
 2.1  cars.txt 
 ID Name Performance Score Type 
 101 Thunderbolt 250 Electric 
@@ -30,7 +31,7 @@ ID Name Type Boost
 206 Industrial Zone Heavy 20 
  
  
-3. Game Elements   
+<h2>3. Game Elements   </h2>
 3.1  Game Players 
 The game features two types of participants: the Human Player and the Computer. When a Player races against 
 the Computer, the match takes place on the track selected by the Player, as they have track-selection priority. 
@@ -163,7 +164,7 @@ After the completion of the first race, a summary is created containing the foll
 ● Result: IronClad is declared the winner. 
 This structured history allows the program to provide a clear look back at the performance calculations and 
 iteration counts that led to the final victory. 
-4.  The Main Flow of the Tournament  
+<h2>4.  The Main Flow of the Tournament  </h2>
 In the first race, the player selects a track and a car. Then the computer chooses a car that has an advantage over 
 the selected car. A race is held on the chosen track, and the winner is added to the log list. After that, the computer 
 randomly selects a track from the remaining unselected tracks and races against another computer opponent. 
@@ -214,7 +215,8 @@ Final Final Winner 1a + Winner 1b Track C ( Selected by the player if
 the player win Round 1; otherwise, it 
 is selected by the computer ) 
 Track C removed after Final Race 
-5.  Sample Console Outputs 
+/br
+<h2>5.  Sample Console Outputs </h2>
 Expected console output format for the full tournament is given below. Both cars race simultaneously on the 
 same track. The race log SLL is printed at the end by showing the history of all three races in order. 
 <img width="611" height="498" alt="image" src="https://github.com/user-attachments/assets/1c889d0a-305f-4e68-a4fc-7e6d88808d66" />
