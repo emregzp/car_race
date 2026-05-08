@@ -1,4 +1,4 @@
-<h1>CAR RAVE OOP PROJECT</h1>
+<h1>CAR RACE OOP PROJECT</h1>
 
 [car_race.pdf](https://github.com/user-attachments/files/27531775/car_race.pdf)
 
