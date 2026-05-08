@@ -16,22 +16,17 @@ public class main {
     private static final int STRONG_MATCHUP_BONUS = 15;
     private static final int WEAK_MATCHUP_BONUS = 10;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         new main().run();
     }
 
-    private void run() {
+    private void run() throws FileNotFoundException {
         SLL<Car> cars;
         SLL<Track> tracks;
-        try {
-            String carsPath = "cars.txt";
-            String tracksPath = "tracks.txt";
-            cars = loadCars(carsPath);
-            tracks = loadTracks(tracksPath);
-        } catch (FileNotFoundException fileException) {
-            System.out.println("Data files not found. Please check cars.txt and tracks.txt.");
-            return;
-        }
+        String carsPath = "cars.txt";
+        String tracksPath = "tracks.txt";
+        cars = loadCars(carsPath);
+        tracks = loadTracks(tracksPath);
 
         System.out.println("CAR RACE OOP PROJECT");
         System.out.println("Available Cars (sorted by performance):");
