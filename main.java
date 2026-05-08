@@ -16,8 +16,10 @@ public class main {
         SLL<Car> cars;
         SLL<Track> tracks;
         try {
-            cars = loadCars("/home/runner/work/car_race/car_race/cars.txt");
-            tracks = loadTracks("/home/runner/work/car_race/car_race/tracks.txt");
+            String carsPath = "cars.txt";
+            String tracksPath = "tracks.txt";
+            cars = loadCars(carsPath);
+            tracks = loadTracks(tracksPath);
         } catch (FileNotFoundException exception) {
             System.out.println("Data files not found. Please check cars.txt and tracks.txt.");
             return;
@@ -145,9 +147,8 @@ public class main {
                 break;
             }
             int id = Integer.parseInt(idToken);
-            int difficulty = Integer.parseInt(difficultyToken);
             int boost = Integer.parseInt(boostToken);
-            tracks.append(new Track(id, name, type, difficulty, boost));
+            tracks.append(new Track(id, name, type, boost));
         }
 
         scanner.close();
@@ -458,14 +459,12 @@ public class main {
         private final int id;
         private final String name;
         private final String type;
-        private final int difficulty;
         private final int boost;
 
-        private Track(int id, String name, String type, int difficulty, int boost) {
+        private Track(int id, String name, String type, int boost) {
             this.id = id;
             this.name = name;
             this.type = type;
-            this.difficulty = difficulty;
             this.boost = boost;
         }
     }
